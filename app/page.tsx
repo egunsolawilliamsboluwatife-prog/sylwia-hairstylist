@@ -1607,7 +1607,7 @@ I would love to book my next luxury colour transformation!`;
               <span className="text-[10px] uppercase font-mono tracking-widest text-[#c9a063] block mb-4">Urgent Consultation</span>
               <p className="text-xs mb-4">Have an urgent wedding, restoration, or correction requirement? Directly contact Sylwia&apos;s personal booking staff.</p>
               <a 
-                href="https://wa.me/447480121883?text=Hi%20Sylwia!%20I%20would%20love%2520to%20schedule%20a%20luxury%20consultation%20with%20you."
+                href="https://wa.me/447480121883?text=Hi%20Sylwia!%20I%20would%20love%20to%20schedule%20a%20luxury%20consultation%20with%20you."
                 target="_blank"
                 rel="noreferrer"
                 className="bg-transparent border border-white/10 hover:border-[#c9a063] text-white hover:text-[#c9a063] block text-center py-3 text-xs uppercase tracking-widest rounded transition-all font-mono"
