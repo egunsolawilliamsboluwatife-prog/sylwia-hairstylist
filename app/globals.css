@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif), serif;
+  }
+  .font-sans {
+    font-family: var(--font-sans), sans-serif;
+  }
+}
+
+/* Base style resets and customizations */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #c9a063 #0b0c10;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0c10;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a063;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e5b871;
+}
+
+/* Soft ambient glow animations */
+@keyframes slow-pulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+.animate-slow-pulse {
+  animation: slow-pulse 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom typography and transition systems */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  color: transparent;
+}
+.text-stroke-gold {
+  -webkit-text-stroke: 1px rgba(201, 160, 99, 0.3);
+  color: transparent;
+}
+
+/* Custom image transition and crossfade definitions */
+.image-reveal-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.image-reveal-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #0b0c10, transparent);
+  transform: translateX(-101%);
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.image-reveal-wrapper.active::after {
+  transform: translateX(101%);
+}

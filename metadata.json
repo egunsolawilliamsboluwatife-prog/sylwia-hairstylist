@@ -1,0 +1,6 @@
+{
+  "name": "Sylwia Hairstylist",
+  "description": "Luxurious, cinematic narrative website for Sylwia Hairstylist's award-winning 'No Mirror Experience' in Cardiff, UK.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
