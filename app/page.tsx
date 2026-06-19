@@ -276,7 +276,6 @@ I would love to book my next luxury colour transformation!`;
           >
             {/* Elegant Floating Ambient Particles */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,160,99,0.08),transparent_70%)] animate-slow-pulse" />
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[size:100px_100px]" />
             
             <motion.div 
               id="entry-logo-wrapper"
@@ -563,7 +562,7 @@ I would love to book my next luxury colour transformation!`;
                   alt="Icy Blonde Masterpiece" 
                   fill
                   sizes="(max-width: 768px) 100vw, 320px"
-                  className="object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-1000 object-top"
+                  className="object-cover brightness-95 hover:brightness-100 hover:scale-[1.02] transition-all duration-700 object-top"
                   referrerPolicy="no-referrer"
                   priority
                 />
@@ -686,7 +685,7 @@ I would love to book my next luxury colour transformation!`;
                       alt="Hair Foiling Phase" 
                       fill
                       sizes="(max-width: 1024px) 100vw, 800px"
-                      className="object-cover filter saturate-50 brightness-[0.2]"
+                      className="object-cover saturate-50 brightness-[0.2]"
                       referrerPolicy="no-referrer"
                     />
                     {/* Misty / heavy glass visual blurring layer */}
@@ -759,13 +758,13 @@ I would love to book my next luxury colour transformation!`;
                   </p>
                 </div>
 
-                <div className="aspect-[4/5] rounded-xl overflow-hidden relative grayscale drop-shadow-lg">
+                <div className="aspect-[4/5] rounded-xl overflow-hidden relative drop-shadow-lg">
                   <Image 
                     src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80" 
                     alt="Sylwia Daria Łuszczyńska Hairstylist" 
                     fill
                     sizes="(max-width: 1024px) 100vw, 450px"
-                    className="object-cover object-top"
+                    className="object-cover object-top hover:scale-[1.02] transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
@@ -894,7 +893,7 @@ I would love to book my next luxury colour transformation!`;
                           alt={item.title} 
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                          className="object-cover object-top filter contrast-105 brightness-95"
+                          className="object-cover object-top contrast-105 brightness-95"
                           referrerPolicy="no-referrer"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
@@ -1545,7 +1544,7 @@ I would love to book my next luxury colour transformation!`;
                     src="https://maps.google.com/maps?q=Sylwia%20Hairstylist%20Unit%206%20200%20Kings%20Road%20Cardiff%20CF11%209DF&t=&z=16&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="100%"
-                    style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(1.2)' }}
+                    style={{ border: 0 }}
                     allowFullScreen={false}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
