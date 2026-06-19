@@ -20,8 +20,6 @@ import {
   Compass, 
   Star, 
   MessageSquare,
-  VolumeX, 
-  Volume2,
   Instagram,
   ChevronDown,
   Info,
@@ -63,8 +61,6 @@ export default function SylwiaHairstylistPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<'blonde' | 'balayage' | 'vivid'>('blonde');
   const [revealAmount, setRevealAmount] = useState<number>(35); // percentage slider for Mirror Reveal widget [0-100]
-  const [isMusicPlaying, setIsMusicPlaying] = useState<boolean>(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Digital Luxury Consultation System State
   const [consultStep, setConsultStep] = useState<number>(1);
@@ -125,82 +121,7 @@ export default function SylwiaHairstylistPage() {
     Promise.resolve().then(() => {
       setIsMounted(true);
     });
-    // Initialize ambient soft synth sound
-    if (typeof window !== 'undefined') {
-      // Small ambient synthesized sound element (royalty-free soft drone / spa wave)
-      audioRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/138/138-200.wav'); // Soft breeze trigger
-      // Set to loop simple white noise / stream ambient if wanted. We will use a soft web synth for customized true premium touch!
-    }
   }, []);
-
-  // Soft client-side Web Audio synthesizer to trigger ambient atmospheric sanctuary pad on demand
-  const synthIntervalRef = useRef<any>(null);
-  const audioCtxRef = useRef<AudioContext | null>(null);
-  const oscRef = useRef<OscillatorNode | null>(null);
-  const osc2Ref = useRef<OscillatorNode | null>(null);
-  const gainRef = useRef<GainNode | null>(null);
-
-  const toggleAmbientSound = () => {
-    if (!isMounted) return;
-
-    if (isMusicPlaying) {
-      // Turn off synth
-      if (gainRef.current) {
-        try {
-          gainRef.current.gain.exponentialRampToValueAtTime(0.0001, audioCtxRef.current!.currentTime + 1.5);
-          setTimeout(() => {
-            if (oscRef.current) oscRef.current.stop();
-            if (osc2Ref.current) osc2Ref.current.stop();
-          }, 1500);
-        } catch (e) {
-          console.log(e);
-        }
-      }
-      setIsMusicPlaying(false);
-    } else {
-      // Turn on bespoke luxury synthesizer pad
-      try {
-        const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
-        const ctx = new AudioContextClass();
-        audioCtxRef.current = ctx;
-
-        const gainNode = ctx.createGain();
-        gainNode.gain.setValueAtTime(0, ctx.currentTime);
-        gainNode.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 1.5); // safe soft volume level
-
-        // Low ocean drone pad 85Hz
-        const osc = ctx.createOscillator();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(85, ctx.currentTime);
-
-        // Fifth harmony pad 127.5Hz
-        const osc2 = ctx.createOscillator();
-        osc2.type = 'sine';
-        osc2.frequency.setValueAtTime(127.5, ctx.currentTime);
-
-        // Biquad filter to make it warmer, eliminating any harsh high frequencies
-        const filter = ctx.createBiquadFilter();
-        filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(250, ctx.currentTime);
-
-        osc.connect(filter);
-        osc2.connect(filter);
-        filter.connect(gainNode);
-        gainNode.connect(ctx.destination);
-
-        osc.start();
-        osc2.start();
-
-        oscRef.current = osc;
-        osc2Ref.current = osc2;
-        gainRef.current = gainNode;
-
-        setIsMusicPlaying(true);
-      } catch (err) {
-        console.warn("Web Audio not allowed or failed to init:", err);
-      }
-    }
-  };
 
   // Portfolio details matching real expertise in icy blondes, soft taupe, vivid colours, AirTouch and Balayage
   const portfolioItems: PortfolioItem[] = [
@@ -223,7 +144,7 @@ export default function SylwiaHairstylistPage() {
       shades: 'Soft Taupe, Dark Vanilla & Biscuit Cream',
       duration: '3.5 Hours',
       beforeUrl: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=400&q=80',
-      afterUrl: 'https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=600&q=80',
+      afterUrl: 'https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=600&q=80',
       story: 'Designed specifically for luxury corporate clients in Ponctanna seeking low-maintenance hair health. Leveraged Montibello clay-based lighteners to maintain structural cuticle integrity.'
     },
     {
@@ -337,7 +258,7 @@ I would love to book my next luxury colour transformation!`;
 
     const encodedText = encodeURIComponent(text);
     // Open WhatsApp link or Fresha info
-    window.open(`https://wa.me/447477123456?text=${encodedText}`, '_blank');
+    window.open(`https://wa.me/447480121883?text=${encodedText}`, '_blank');
   };
 
   return (
@@ -390,20 +311,12 @@ I would love to book my next luxury colour transformation!`;
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
                     setVisitedSanctuary(true);
-                    // Proactively turn on synthesizer for sensory experience
-                    toggleAmbientSound();
                   }}
                   className="bg-transparent border border-[#c9a063] text-[#c9a063] hover:bg-[#c9a063] hover:text-[#0b0c10] transition-all duration-700 px-10 py-4 text-xs tracking-[0.3em] uppercase cursor-pointer relative overflow-hidden group"
                 >
                   <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40" />
                   Enter The Sanctuary
                 </motion.button>
-                <button 
-                  onClick={() => setVisitedSanctuary(true)} 
-                  className="text-xs text-gray-500 hover:text-gray-300 font-light tracking-widest underline underline-offset-4 cursor-pointer"
-                >
-                  Enter silently (No Ambient Synth)
-                </button>
               </div>
             </motion.div>
 
@@ -414,24 +327,6 @@ I would love to book my next luxury colour transformation!`;
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Ambient Sound Controller Badge - Floating top left */}
-      <div className="fixed top-6 left-6 z-50 flex items-center space-x-3 pointer-events-auto">
-        <motion.button
-          id="btn-sound-toggle"
-          title="Toggle soft relaxing sanctuary tone"
-          whileHover={{ scale: 1.05 }}
-          onClick={toggleAmbientSound}
-          className="w-10 h-10 rounded-full flex items-center justify-center bg-black/40 border border-[#c9a063]/30 backdrop-blur-md text-[#c9a063] hover:text-white transition-all cursor-pointer shadow-lg"
-        >
-          {isMusicPlaying ? <Volume2 className="w-4 h-4 animate-bounce" /> : <VolumeX className="w-4 h-4" />}
-        </motion.button>
-        {isMusicPlaying && (
-          <span className="hidden md:inline-block text-[10px] tracking-widest text-[#c9a063] uppercase bg-black/50 px-3 py-1 rounded-full border border-white/5 animate-pulse">
-            Sanctuary Tone Active
-          </span>
-        )}
-      </div>
 
       {/* Floating Cinematic Narrative Tracker (HUD) - Hidden on Mobile */}
       <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden xl:flex flex-col items-end space-y-6 select-none bg-black/40 p-5 rounded-2xl backdrop-blur-md border border-white/5 shadow-2xl">
@@ -812,7 +707,7 @@ I would love to book my next luxury colour transformation!`;
                     {/* High fashion beautiful blonde hair styling image */}
                     <div className="absolute inset-y-0 right-0 w-[100%] h-full" style={{ width: '100%' }}>
                       <Image 
-                        src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=1200&q=80" 
+                        src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=1200&q=80" 
                         alt="The Magical Restored Hair Reveal" 
                         fill
                         sizes="(max-width: 1024px) 100vw, 800px"
@@ -1365,7 +1260,7 @@ I would love to book my next luxury colour transformation!`;
                           required
                           value={consultContact}
                           onChange={(e) => setConsultContact(e.target.value)}
-                          placeholder="e.g. +44 7477 123456"
+                          placeholder="e.g. +44 7480 121883"
                           className="w-full bg-[#0d0f14] border border-white/10 rounded-lg py-3 pl-11 pr-4 text-xs font-mono text-white focus:outline-none focus:border-[#c9a063] transition-colors"
                         />
                       </div>
@@ -1713,7 +1608,7 @@ I would love to book my next luxury colour transformation!`;
               <span className="text-[10px] uppercase font-mono tracking-widest text-[#c9a063] block mb-4">Urgent Consultation</span>
               <p className="text-xs mb-4">Have an urgent wedding, restoration, or correction requirement? Directly contact Sylwia&apos;s personal booking staff.</p>
               <a 
-                href="https://wa.me/447477123456?text=Hi%20Sylwia!%20I%20would%20love%2520to%20schedule%20a%20luxury%20consultation%20with%20you."
+                href="https://wa.me/447480121883?text=Hi%20Sylwia!%20I%20would%20love%2520to%20schedule%20a%20luxury%20consultation%20with%20you."
                 target="_blank"
                 rel="noreferrer"
                 className="bg-transparent border border-white/10 hover:border-[#c9a063] text-white hover:text-[#c9a063] block text-center py-3 text-xs uppercase tracking-widest rounded transition-all font-mono"
