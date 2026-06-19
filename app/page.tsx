@@ -212,7 +212,7 @@ export default function SylwiaHairstylistPage() {
       shades: 'Icy Platinum, Ash Taupe & Pale Nordic Pearl',
       duration: '4.5 Hours',
       beforeUrl: 'https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?auto=format&fit=crop&w=400&q=80',
-      afterUrl: 'https://images.unsplash.com/photo-1605497746444-ac9ee67eb164?auto=format&fit=crop&w=600&q=80',
+      afterUrl: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80',
       story: 'A highly delicate premium transformation. Over 200 microfoils used in standard 0.2mm partitions. The Airtouch technique ensures seamless growth with zero root banding for up to seven months.'
     },
     {
@@ -223,7 +223,7 @@ export default function SylwiaHairstylistPage() {
       shades: 'Soft Taupe, Dark Vanilla & Biscuit Cream',
       duration: '3.5 Hours',
       beforeUrl: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=400&q=80',
-      afterUrl: 'https://images.unsplash.com/photo-1605497746444-ac9ee67eb164?auto=format&fit=crop&w=600&q=80',
+      afterUrl: 'https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=600&q=80',
       story: 'Designed specifically for luxury corporate clients in Ponctanna seeking low-maintenance hair health. Leveraged Montibello clay-based lighteners to maintain structural cuticle integrity.'
     },
     {
@@ -664,7 +664,7 @@ I would love to book my next luxury colour transformation!`;
               </div>
               <div className="w-full h-full relative overflow-hidden rounded">
                 <Image 
-                  src="https://images.unsplash.com/photo-1605497746444-ac9ee67eb164?auto=format&fit=crop&w=800&q=80" 
+                  src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" 
                   alt="Icy Blonde Masterpiece" 
                   fill
                   sizes="(max-width: 768px) 100vw, 320px"
@@ -812,7 +812,7 @@ I would love to book my next luxury colour transformation!`;
                     {/* High fashion beautiful blonde hair styling image */}
                     <div className="absolute inset-y-0 right-0 w-[100%] h-full" style={{ width: '100%' }}>
                       <Image 
-                        src="https://images.unsplash.com/photo-1605497746444-ac9ee67eb164?auto=format&fit=crop&w=1200&q=80" 
+                        src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=1200&q=80" 
                         alt="The Magical Restored Hair Reveal" 
                         fill
                         sizes="(max-width: 1024px) 100vw, 800px"
